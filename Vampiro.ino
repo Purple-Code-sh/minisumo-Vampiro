@@ -44,31 +44,33 @@ void loop() {
       case 0: //PELEA
         switch(sensorValue){
           case 0:
+            //ninguno detecta
             adelante(120,120);
             delay(20);
             paro();
             delay(20);
             break;
           case 1:
+            //enfrente-der
             break;
           case 2:
+            //enfrente-izq
             break;
           case 3:
+            //ambos enfrente
             break;
           case 4:
+            //Derecha
             break;
           case 5:
-            break;
-          case 6:
+            //Derecha y enfrente-der
             break;
           case 8:
-            break;
-          case 9:
+            //Izquierda
             break;
           case 10:
+            //Izquierda y enfrente-izq
             break;
-          case 12:
-            break;  
         }
         break;
 
