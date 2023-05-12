@@ -45,31 +45,43 @@ void loop() {
         switch(sensorValue){
           case 0:
             //ninguno detecta
-            adelante(120,120);
-            delay(20);
-            paro();
-            delay(20);
+            adelante(75,75);
+            ledFunc();
+            adelante(150,150);
+            ledFunc();
+            adelante(210,210);
+            ledFunc();
             break;
           case 1:
             //enfrente-der
+            derecha(160, 160);
             break;
           case 2:
             //enfrente-izq
+            izquierda(110, 110);
             break;
           case 3:
             //ambos enfrente
+            adelante(75,75);
+            delay(30);
+            paro();
+            delay(30);
             break;
           case 4:
             //Derecha
+            derecha(220, 220);
             break;
           case 5:
             //Derecha y enfrente-der
+            derecha(180, 180);
             break;
           case 8:
             //Izquierda
+            izquierda(220, 220);
             break;
           case 10:
             //Izquierda y enfrente-izq
+            izquierda(130, 130);
             break;
         }
         break;
