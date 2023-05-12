@@ -16,6 +16,7 @@ Servo Bandera;
 
 int sensorValue;
 int lineValue;
+int justOneTime;
 
 void setup() {
   Serial.begin(9600);
@@ -31,12 +32,20 @@ void setup() {
   pinMode(Motor2_1, OUTPUT);
   pinMode(Motor2_2, OUTPUT);
   pinMode(led, OUTPUT);
+
+  justOneTime = 1;
   
 }
 
 void loop() {
   while(1){
+
+    if(justOneTime == 1){
+      delay(5000);
+      justOneTime == 0;
+    }
     
+    Bandera.write(170);
     sensorValue = sensorState();
     lineValue = lineState();
     
@@ -87,19 +96,32 @@ void loop() {
         break;
 
       case 1:
-      //DERECHA
+        //DERECHA
+        atras(200, 200);
+        delay(400);
+        izquierda(200,200);
+        delay(400);
+        adelante(100,100);
        break;
 
       case 2:
-      //IZQUIERDA
+        //IZQUIERDA
+        atras(200, 200);
+        delay(400);
+        derecha(200,200);
+        delay(400);
+        adelante(100,100);
         break;
 
       case 3:
-      //ATRAS
+        atras(200, 200);
+        delay(400);
+        izquierda(200,200);
+        delay(400);
+        adelante(100,100);
         break;
     }
   }
-
 }
 
 // ---------------- Sensores ----------------
