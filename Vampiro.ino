@@ -63,7 +63,7 @@ void loop() {
           case 1:
             //enfrente-der
             Serial.println("enfrente-der");
-            derecha(10, 10);
+            derecha(7, 7);
             //paro();
             break;
           case 2:
@@ -83,13 +83,13 @@ void loop() {
           case 4:
             //Derecha
             Serial.println("solo derecha");
-            derecha(18, 18);
+            derecha(16, 16);
             //paro();
             break;
           case 5:
             //Derecha y enfrente-der
             Serial.println("derecha y enf-der");
-            derecha(13, 13);
+            derecha(10, 10);
             //paro();
             break;
           case 7:
@@ -116,12 +116,20 @@ void loop() {
             // Izquierda y derecha
             izquierda(12,12);
             break;
+           case 13:
+            // Izquierda y derecha
+            izquierda(20,20);
+            break;
            case 15:
             // Todos
             adelante(26,255);
             delay(20);
             paro();
             delay(130);
+            izquierda(20,20);
+            delay(30);
+            paro();
+            delay(120);
             break;
         }
         break;
