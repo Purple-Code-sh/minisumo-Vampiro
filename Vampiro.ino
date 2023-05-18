@@ -6,6 +6,7 @@
 #define Sen_Enfr_Izq 4
 #define Sen_Izq 8
 #define Band 2
+#define Receptor A5
 int MotorIzq_1 = 5;
 int MotorIzq_2 = 9;
 int MotorDer_1 = 3;
@@ -31,20 +32,22 @@ void setup() {
   pinMode(MotorIzq_2, OUTPUT);
   pinMode(MotorDer_1, OUTPUT);
   pinMode(MotorDer_2, OUTPUT);
+  pinMode(Receptor, INPUT);
+  
 
   justOneTime = 1;
   
 }
 
 void loop() {
-  while(1){
-
+  while(digitalRead(Receptor)==HIGH){
+    Serial.println("RECEPTOR ------------------------");
     /*if(justOneTime == 1){
       delay(5000);
       justOneTime = 0;
     }*/
     
-    //Bandera.write(25);
+    Bandera.write(20);
     sensorValue = sensorState();
     lineValue = 0;
     
@@ -165,8 +168,8 @@ void loop() {
     }
   }
   
-  //paro();
-  //Bandera.write(0);
+  paro();
+  Bandera.write(90);
   
 }
 
