@@ -1,6 +1,6 @@
 #include <Servo.h>
-#define Linea_Iz A0
-#define Linea_Dr A1
+#define Linea_Iz A1
+#define Linea_Dr A2
 #define Sen_Der 7
 #define Sen_Enfr_Der 10
 #define Sen_Enfr_Izq 4
@@ -41,19 +41,19 @@ void setup() {
 
 void loop() {
   while(digitalRead(Receptor)==HIGH){
-    Serial.println("RECEPTOR ------------------------");
+    //Serial.println("RECEPTOR ------------------------");
     /*if(justOneTime == 1){
       delay(5000);
       justOneTime = 0;
     }*/
     
-    Bandera.write(20);
+    Bandera.write(14);
     sensorValue = sensorState();
-    lineValue = 0;
+    lineValue = lineState();
     
     switch(lineValue){
       case 0: //PELEA
-        //Serial.println("pelea");
+        Serial.println("pelea");
         switch(sensorValue){
           case 0:
             //ninguno detecta
@@ -138,8 +138,8 @@ void loop() {
         break;
 
       case 1:
-        //DERECHA
-        Serial.println("linea der");
+        //Izquierda
+        Serial.println("linea izq");
         /*atras(120, 120);
         delay(400);
         izquierda(120,120);
@@ -148,8 +148,8 @@ void loop() {
        break;
 
       case 2:
-        //IZQUIERDA
-        Serial.println("linea izq");
+        //Derecha
+        Serial.println("linea der");
         /*atras(120, 120);
         delay(300);
         derecha(120,120);
@@ -189,9 +189,9 @@ int sensorState(){
 
 int lineState(){
   int valine_Iz =! digitalRead(Linea_Iz);
-  int valine_Dr =! digitalRead(Linea_Dr)*2;
+  //int valine_Dr =! digitalRead(Linea_Dr)*2;
 
-  int suma = valine_Iz + valine_Dr;
+  int suma = valine_Iz; //+ valine_Dr;
   /*Serial.print("L :  ");
   Serial.println(suma);*/
   return suma;
